@@ -48,6 +48,7 @@ export default class Cycling {
         localStorage.setItem('runners', JSON.stringify(this.runners));
 
         this.renderTable();
+        this.renderAverages();
         //Close the modal
         document.getElementById('modal-dismiss').click();
     }
