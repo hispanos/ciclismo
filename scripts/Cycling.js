@@ -8,7 +8,10 @@ export default class Cycling {
         this.run3 = document.getElementById('run3');
         this.run4 = document.getElementById('run4');
         this.run5 = document.getElementById('run5');
-        this.runners = [];
+        this.runners = JSON.parse(localStorage.getItem('runners'));
+        if (!this.runners || this.runners.length < 1) {
+            this.runners = [];
+        }
     }
 
     saveCyclist(e) {
@@ -24,7 +27,8 @@ export default class Cycling {
         }
 
         this.runners.push(runner);
-        e.reset();
+        this.form.reset();
+        localStorage.setItem('runners', JSON.stringify(this.runners));
 
         console.log(this.runners);
     }
