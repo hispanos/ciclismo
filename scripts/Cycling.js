@@ -55,19 +55,17 @@ export default class Cycling {
 
     setAverage(runs) {
         let time = 0;
-        for (let i = 0; i < runs.length; i++) {
-            const run = parseInt(runs[i]);
-            time += run;
-        }
+        runs.forEach((run) => {
+            const timeRun = parseInt(run); 
+            time += timeRun;
+        });
 
         const average = time/5;
         return average;
     }
 
     renderTable() {
-        for (let i = 0; i < this.runners.length; i++) {
-            const item = this.runners[i];
-            
+        this.runners.forEach((item, i) => {
             const row = this.table.getElementsByTagName('tbody')[0].insertRow();
             row.innerHTML = `
             <tr>
@@ -81,13 +79,12 @@ export default class Cycling {
                 <td><a href="#">Ver</a></td>
             </tr>
             `
-        }
+        })
+
     }
 
     renderAverages() {
-        for (let i = 0; i < this.runners.length; i++) {
-            const item = this.runners[i];
-
+        this.runners.forEach((item, i) => {
             const row = this.tableAverages.getElementsByTagName('tbody')[0].insertRow();
             row.innerHTML = `
             <tr>
@@ -96,7 +93,7 @@ export default class Cycling {
                 <td>${item.average}</td>
             </tr>
             `
-        }
+        })
     }
 
 }
