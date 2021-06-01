@@ -7,3 +7,7 @@
     width: 100%;
     object-fit: cover;
 }
+
+.min-h-100 {
+    min-height: 100vh;
+}

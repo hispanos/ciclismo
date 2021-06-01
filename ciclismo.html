@@ -8,9 +8,9 @@
     <link href="./styles/main.css" rel="stylesheet">
     <title>Ciclistas</title>
 </head>
-<body>
+<body class="d-flex flex-column min-h-100">
     
-    <header>
+    <header class="flex-shrink-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
@@ -33,13 +33,12 @@
                 </div>
             </div>
         </nav>
+        <div>
+            <img src="./images/cyclist-man.jpg" class="img-fluid banner-img" alt="Banner ciclista corriendo">
+        </div>
     </header>
 
-    <div>
-        <img src="./images/cyclist-man.jpg" class="img-fluid banner-img" alt="Banner ciclista corriendo">
-    </div>
-
-    <article class="container-fluid mt-5">
+    <article class="container-fluid mt-5 flex-shrink-0">
         <div class="card">
             <div class="card-body">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -60,7 +59,7 @@
                                 <div class="col-11">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">🔍</span>
-                                        <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="basic-addon1">
+                                        <input type="text" class="form-control" placeholder="Filtrar" aria-label="Buscar" aria-describedby="basic-addon1">
                                     </div>
                                 </div>
                                 <div class="col-1">
@@ -114,8 +113,8 @@
         </div>
     </article>
 
-    <footer>
-        
+    <footer class="footer mt-auto pt-3">
+        <div class="p-3 mb-2 bg-dark text-white text-center">CopyRight © 2020 | Colombia | By Mailer M.</div>
     </footer>
 
     <script src="./scripts/bootstrap.min.js"></script>
