@@ -228,67 +228,69 @@
     </article>
 
     <article id="article-modal">
-        <div class="modal" tabindex="-1" id="modal">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Nueva Mensualidad</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  
-                    <div class="card mb-5">
-                        <div class="card-header">
-                          <strong>Datos del Corredor</strong>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="mb-3 col-6">
-                                    <label for="name" class="form-label">Nombre (*)</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
+        <form id="form-new-runner">
+            <div class="modal" tabindex="-1" id="modal">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title">Nueva Mensualidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    
+                        <div class="card mb-5">
+                            <div class="card-header">
+                            <strong>Datos del Corredor</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="mb-3 col-6">
+                                        <label for="name" class="form-label">Nombre (*)</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>Registro de Tiempos</strong>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="mb-3 col-6">
-                                    <label for="run1" class="form-label">Carrera 1 (En minutos) *</label>
-                                    <input type="number" class="form-control" id="run1" name="run1" required>
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <label for="run2" class="form-label">Carrera 2 (En minutos) *</label>
-                                    <input type="number" class="form-control" id="run2" name="run2" required>
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <label for="run3" class="form-label">Carrera 3 (En minutos) *</label>
-                                    <input type="number" class="form-control" id="run3" name="run3" required>
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <label for="run4" class="form-label">Carrera 4 (En minutos) *</label>
-                                    <input type="number" class="form-control" id="run4" name="run4" required>
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <label for="run5" class="form-label">Carrera 5 (En minutos) *</label>
-                                    <input type="number" class="form-control" id="run5" name="run5" required>
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Registro de Tiempos</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="mb-3 col-6">
+                                        <label for="run1" class="form-label">Carrera 1 (En minutos) *</label>
+                                        <input type="number" class="form-control" id="run1" name="run1" required>
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="run2" class="form-label">Carrera 2 (En minutos) *</label>
+                                        <input type="number" class="form-control" id="run2" name="run2" required>
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="run3" class="form-label">Carrera 3 (En minutos) *</label>
+                                        <input type="number" class="form-control" id="run3" name="run3" required>
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="run4" class="form-label">Carrera 4 (En minutos) *</label>
+                                        <input type="number" class="form-control" id="run4" name="run4" required>
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label for="run5" class="form-label">Carrera 5 (En minutos) *</label>
+                                        <input type="number" class="form-control" id="run5" name="run5" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Salir</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Salir</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
                 </div>
-              </div>
             </div>
-          </div>
+        </form>
     </article>
 
     <footer class="footer mt-auto pt-3">
