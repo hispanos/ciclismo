@@ -24,12 +24,13 @@ export default class Cycling {
         e.preventDefault();
 
         //Set the average
-        runs = [this.run1.value, this.run2.value, this.run3.value, this.run4.value, this.run5.value]
-        average = this.setAverage(runs);
+        const runs = [this.run1.value, this.run2.value, this.run3.value, this.run4.value, this.run5.value]
+        const average = this.setAverage(runs);
         //Save averages at localstorage as array
         this.averages.push(average);
         localStorage.setItem('averages', JSON.stringify(this.averages));
 
+        //Set object runner
         const runner = {
             name: this.name.value,
             run1: this.run1.value,
@@ -40,6 +41,7 @@ export default class Cycling {
             average: average
         }
 
+        //Save runner at localstorage
         this.runners.push(runner);
         this.form.reset();
         localStorage.setItem('runners', JSON.stringify(this.runners));
@@ -50,9 +52,12 @@ export default class Cycling {
     }
 
     setAverage(runs) {
-        for (const time of runs) {
-            time += time;
+        let time = 0;
+        for (let i = 0; i < runs.length; i++) {
+            const run = parseInt(runs[i]);
+            time += run;
         }
+
         const average = time/5;
         return average;
     }
