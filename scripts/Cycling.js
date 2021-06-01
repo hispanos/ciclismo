@@ -2,6 +2,8 @@ export default class Cycling {
 
     constructor() {
         this.form = document.getElementById('form-new-runner');
+        this.table = document.getElementById('table-runners');
+        this.modal = document.getElementById('modal');
         this.name = document.getElementById('name');
         this.run1 = document.getElementById('run1');
         this.run2 = document.getElementById('run2');
@@ -30,7 +32,28 @@ export default class Cycling {
         this.form.reset();
         localStorage.setItem('runners', JSON.stringify(this.runners));
 
-        console.log(this.runners);
+        this.renderTable();
+        this.modal.hide();
+    }
+
+    renderTable() {
+        for (let i = 0; i < this.runners.length; i++) {
+            const item = this.runners[i];
+            
+            const row = this.table.getElementsByTagName('tbody')[0].insertRow();
+            row.innerHTML = `
+            <tr>
+                <td>${i+1}</td>
+                <td>${item.name}</td>
+                <td>${item.run1}</td>
+                <td>${item.run2}</td>
+                <td>${item.run3}</td>
+                <td>${item.run4}</td>
+                <td>${item.run5}</td>
+                <td><a href="#">Ver</a></td>
+            </tr>
+            `
+        }
     }
 
 }
