@@ -3,6 +3,7 @@ export default class Cycling {
     constructor() {
         this.form = document.getElementById('form-new-runner');
         this.table = document.getElementById('table-runners');
+        this.tableAverages = document.getElementById('table-averages');
         this.modal = document.getElementById('modal');
         this.name = document.getElementById('name');
         this.run1 = document.getElementById('run1');
@@ -77,6 +78,21 @@ export default class Cycling {
                 <td>${item.run4}</td>
                 <td>${item.run5}</td>
                 <td><a href="#">Ver</a></td>
+            </tr>
+            `
+        }
+    }
+
+    renderAverages() {
+        for (let i = 0; i < this.runners.length; i++) {
+            const item = this.runners[i];
+
+            const row = this.tableAverages.getElementsByTagName('tbody')[0].insertRow();
+            row.innerHTML = `
+            <tr>
+                <td>${i+1}</td>
+                <td>${item.name}</td>
+                <td>${item.average}</td>
             </tr>
             `
         }
