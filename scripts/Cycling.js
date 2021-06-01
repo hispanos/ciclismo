@@ -14,10 +14,21 @@ export default class Cycling {
         if (!this.runners || this.runners.length < 1) {
             this.runners = [];
         }
+        this.averages = JSON.parse(localStorage.getItem('averages'));
+        if (!this.averages || this.averages.length < 1) {
+            this.averages = [];
+        }
     }
 
     saveCyclist(e) {
         e.preventDefault();
+
+        //Set the average
+        runs = [this.run1.value, this.run2.value, this.run3.value, this.run4.value, this.run5.value]
+        average = this.setAverage(runs);
+        //Save averages at localstorage as array
+        this.averages.push(average);
+        localStorage.setItem('averages', JSON.stringify(this.averages));
 
         const runner = {
             name: this.name.value,
@@ -26,6 +37,7 @@ export default class Cycling {
             run3: this.run3.value,
             run4: this.run4.value,
             run5: this.run5.value,
+            average: average
         }
 
         this.runners.push(runner);
@@ -35,6 +47,14 @@ export default class Cycling {
         this.renderTable();
         //Close the modal
         document.getElementById('modal-dismiss').click();
+    }
+
+    setAverage(runs) {
+        for (const time of runs) {
+            time += time;
+        }
+        const average = time/5;
+        return average;
     }
 
     renderTable() {
