@@ -1,3 +1,7 @@
+.min-h-100 {
+    min-height: 100vh;
+}
+
 .header-logo {
     width: 60px;
 }
@@ -8,6 +12,6 @@
     object-fit: cover;
 }
 
-.min-h-100 {
-    min-height: 100vh;
+.img-badge {
+    height: 70px;
 }

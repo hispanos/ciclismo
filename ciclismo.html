@@ -53,6 +53,7 @@
                     </li>
                 </ul>
                 <div class="tab-content mt-4 px-5" id="myTabContent">
+
                     <div class="tab-pane fade show active" id="times" role="tabpanel" aria-labelledby="times-tab">
                         <div class="container">
                             <div class="row">
@@ -63,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-success">+</button>
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal">+</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -92,7 +93,7 @@
                                             <td><a href="#">Ver</a></td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
+                                            <td>2</td>
                                             <td>Juancito Perez</td>
                                             <td>90 min</td>
                                             <td>90 min</td>
@@ -106,11 +107,188 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="average" role="tabpanel" aria-labelledby="average-tab">...</div>
-                    <div class="tab-pane fade" id="ranking" role="tabpanel" aria-labelledby="ranking-tab">...</div>
+
+                    <div class="tab-pane fade" id="average" role="tabpanel" aria-labelledby="average-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-3">
+                                    <h4>Promedio de tiempos por corredor</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <table class="table table-striped table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Corredor</th>
+                                            <th>Promedio</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Juancito Perez</td>
+                                            <td>90 min</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Juancito Perez</td>
+                                            <td>90 min</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="ranking" role="tabpanel" aria-labelledby="ranking-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="card text-dark bg-light mb-3">
+                                    <div class="card-header"><strong>Oro</strong></div>
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-7">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        Corredor: <span id="runner-gold">Juancito Perez</span>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        Tiempo: <span id="time-gold">20 Min</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <span id="award-gold">$ 27.000.000</span>
+                                            </div>
+                                            <div class="col-2">
+                                                <img src="./images/badges/badge-gold.png" alt="Badge Gold" class="img-badge">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="card text-dark bg-light mb-3">
+                                    <div class="card-header"><strong>Plata</strong></div>
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-7">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        Corredor: <span id="runner-silver">Juancito Perez</span>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        Tiempo: <span id="time-silver">20 Min</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <span id="award-silver">$ 17.500.000</span>
+                                            </div>
+                                            <div class="col-2">
+                                                <img src="./images/badges/badge-silver.png" alt="Badge Silver" class="img-badge">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="card text-dark bg-light mb-3">
+                                    <div class="card-header"><strong>Bronce</strong></div>
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-7">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        Corredor: <span id="runner-bronze">Juancito Perez</span>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        Tiempo: <span id="time-bronze">20 Min</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <span id="award-bronze">$ 7.500.000</span>
+                                            </div>
+                                            <div class="col-2">
+                                                <img src="./images/badges/badge-bronze.png" alt="Badge Bronze" class="img-badge">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </article>
+
+    <article id="article-modal">
+        <div class="modal" tabindex="-1" id="modal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Nueva Mensualidad</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                    <div class="card mb-5">
+                        <div class="card-header">
+                          <strong>Datos del Corredor</strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="mb-3 col-6">
+                                    <label for="name" class="form-label">Nombre (*)</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Registro de Tiempos</strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="mb-3 col-6">
+                                    <label for="run1" class="form-label">Carrera 1 (En minutos) *</label>
+                                    <input type="number" class="form-control" id="run1" name="run1" required>
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="run2" class="form-label">Carrera 2 (En minutos) *</label>
+                                    <input type="number" class="form-control" id="run2" name="run2" required>
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="run3" class="form-label">Carrera 3 (En minutos) *</label>
+                                    <input type="number" class="form-control" id="run3" name="run3" required>
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="run4" class="form-label">Carrera 4 (En minutos) *</label>
+                                    <input type="number" class="form-control" id="run4" name="run4" required>
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="run5" class="form-label">Carrera 5 (En minutos) *</label>
+                                    <input type="number" class="form-control" id="run5" name="run5" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Salir</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </article>
 
     <footer class="footer mt-auto pt-3">
