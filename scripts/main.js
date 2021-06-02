@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => { newRunnerSubmit(e) })
     renderTableRunners();
     renderTableAverages();
+    renderRanking();
 });
 
 const newRunnerSubmit = (e) => {
@@ -19,4 +20,10 @@ const renderTableRunners = () => {
 
 const renderTableAverages = () => {
     cycling.renderAverages();
+}
+
+const renderRanking = () => {
+    const ranking = cycling.getRanking();
+    cycling.renderRanking(ranking);
+    cycling.renderAward(ranking);
 }
