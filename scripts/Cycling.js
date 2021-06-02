@@ -89,11 +89,11 @@ export default class Cycling {
             <tr>
                 <td>${i+1}</td>
                 <td>${item.name}</td>
-                <td>${item.run1}</td>
-                <td>${item.run2}</td>
-                <td>${item.run3}</td>
-                <td>${item.run4}</td>
-                <td>${item.run5}</td>
+                <td>${item.run1} min</td>
+                <td>${item.run2} min</td>
+                <td>${item.run3} min</td>
+                <td>${item.run4} min</td>
+                <td>${item.run5} min</td>
                 <td><a href="#">Ver</a></td>
             </tr>
             `
@@ -109,7 +109,7 @@ export default class Cycling {
             <tr>
                 <td>${i+1}</td>
                 <td>${item.name}</td>
-                <td>${item.average}</td>
+                <td>${item.average} min</td>
             </tr>
             `
         })
@@ -130,13 +130,13 @@ export default class Cycling {
     renderRanking() {
         if (this.ranking !== false && this.ranking.length >= 3) {
             this.runnerGold.innerText = this.ranking[0].name.toUpperCase();
-            this.timeGold.innerText = this.ranking[0].average;
+            this.timeGold.innerText = this.ranking[0].average + ' min';
 
             this.runnerSilver.innerText = this.ranking[1].name.toLowerCase();
-            this.timeSilver.innerText = this.ranking[1].average;
+            this.timeSilver.innerText = this.ranking[1].average + ' min';
 
             this.runnerBronze.innerText = this.letterCapital(this.ranking[2].name);
-            this.timeBronze.innerText = this.ranking[2].average;
+            this.timeBronze.innerText = this.ranking[2].average + ' min';
         }
     }
 
