@@ -203,20 +203,28 @@ export default class Cycling {
     }
 
     filterRunner(value) {
-        const [_, ...rows] = this.table.getElementsByTagName('tr');
-        rows.forEach((row) => {
-            const name = row.children[1].textContent.toLowerCase();
-            let isHidden = false;
-            if (value) {
-                isHidden = !name.includes(value.toLowerCase());
-            }
-
-            if (isHidden) {
-                row.classList.add('d-none')
-            }else{
-                row.classList.remove('d-none')
-            }
-        });
+        this.runners = JSON.parse(localStorage.getItem('runners'));
+        const filter = this.runners.filter((a) => a.name.toLowerCase().includes(value.toLowerCase()) );
+        this.runners = filter;
+        console.log(filter)
+        this.renderTable(filter);
     }
+
+    // filterRunner(value) {
+    //     const [_, ...rows] = this.table.getElementsByTagName('tr');
+    //     rows.forEach((row) => {
+    //         const name = row.children[1].textContent.toLowerCase();
+    //         let isHidden = false;
+    //         if (value) {
+    //             isHidden = !name.includes(value.toLowerCase());
+    //         }
+
+    //         if (isHidden) {
+    //             row.classList.add('d-none')
+    //         }else{
+    //             row.classList.remove('d-none')
+    //         }
+    //     });
+    // }
 
 }
