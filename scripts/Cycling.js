@@ -206,7 +206,6 @@ export default class Cycling {
         this.runners = JSON.parse(localStorage.getItem('runners'));
         const filter = this.runners.filter((a) => a.name.toLowerCase().includes(value.toLowerCase()) );
         this.runners = filter;
-        console.log(filter)
         this.renderTable(filter);
     }
 
