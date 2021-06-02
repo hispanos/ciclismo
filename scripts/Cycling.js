@@ -128,6 +128,9 @@ export default class Cycling {
     }
 
     renderRanking() {
+        const alert = document.getElementById('alert-ranking');
+        const container = document.getElementById('container-ranking');
+
         if (this.ranking !== false && this.ranking.length >= 3) {
             this.runnerGold.innerText = this.ranking[0].name.toUpperCase();
             this.timeGold.innerText = this.ranking[0].average + ' min';
@@ -137,6 +140,12 @@ export default class Cycling {
 
             this.runnerBronze.innerText = this.letterCapital(this.ranking[2].name);
             this.timeBronze.innerText = this.ranking[2].average + ' min';
+
+            container.classList.remove('d-none');
+            alert.classList.add('d-none');
+        }else{
+            container.classList.add('d-none');
+            alert.classList.remove('d-none');
         }
     }
 
