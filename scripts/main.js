@@ -23,7 +23,7 @@ const renderTableAverages = () => {
 }
 
 const renderRanking = () => {
-    const ranking = cycling.getRanking();
-    cycling.renderRanking(ranking);
-    cycling.renderAward(ranking);
+    cycling.setRanking();
+    cycling.renderRanking();
+    cycling.renderAward();
 }

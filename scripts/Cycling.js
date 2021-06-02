@@ -19,6 +19,10 @@ export default class Cycling {
         if (!this.averages || this.averages.length < 1) {
             this.averages = [];
         }
+        this.ranking = JSON.parse(localStorage.getItem('ranking'));
+        if (!this.ranking || this.ranking.length < 1) {
+            this.ranking = [];
+        }
 
         this.runnerGold = document.getElementById('runner-gold');
         this.timeGold = document.getElementById('time-gold');
@@ -59,6 +63,9 @@ export default class Cycling {
 
         this.renderTable();
         this.renderAverages();
+        this.setRanking();
+        this.renderRanking();
+        this.renderAward();
         //Close the modal
         document.getElementById('modal-dismiss').click();
     }
@@ -108,27 +115,28 @@ export default class Cycling {
         })
     }
 
-    getRanking() {
+    setRanking() {
         if (this.runners.length >= 3) {
             const order = this.runners.sort((a, b) => a.average - b.average);
-            const top3 = order.slice(0,3)
-            return top3;
+            this.ranking = order.slice(0,3);
+            localStorage.setItem('ranking', JSON.stringify(this.ranking));
+            return this.ranking;
         }else{
             return false;
         }
         
     }
 
-    renderRanking(ranking) {
-        if (ranking !== false && ranking.length >= 3) {
-            this.runnerGold.innerText = ranking[0].name.toUpperCase();
-            this.timeGold.innerText = ranking[0].average;
+    renderRanking() {
+        if (this.ranking !== false && this.ranking.length >= 3) {
+            this.runnerGold.innerText = this.ranking[0].name.toUpperCase();
+            this.timeGold.innerText = this.ranking[0].average;
 
-            this.runnerSilver.innerText = ranking[1].name.toLowerCase();
-            this.timeSilver.innerText = ranking[1].average;
+            this.runnerSilver.innerText = this.ranking[1].name.toLowerCase();
+            this.timeSilver.innerText = this.ranking[1].average;
 
-            this.runnerBronze.innerText = this.letterCapital(ranking[2].name);
-            this.timeBronze.innerText = ranking[2].average;
+            this.runnerBronze.innerText = this.letterCapital(this.ranking[2].name);
+            this.timeBronze.innerText = this.ranking[2].average;
         }
     }
 
@@ -136,10 +144,10 @@ export default class Cycling {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    renderAward(ranking) {
-        if (ranking !== false && ranking.length >= 3) {
+    renderAward() {
+        if (this.ranking !== false && this.ranking.length >= 3) {
             let awardGold = 0;
-            const nameGold = ranking[0].name.length;
+            const nameGold = this.ranking[0].name.length;
             if (nameGold < 15) {
                 awardGold = 25000000;
             }else if(nameGold >= 15 && nameGold <= 30) {
@@ -147,12 +155,12 @@ export default class Cycling {
             }else {
                 awardGold = 30000000;
             }
-            if (ranking[0].name === 'PERIQUITO PEREZ') {
-                awardGold += awardGold;
+            if (this.ranking[0].name === 'PERIQUITO PEREZ') {
+                awardGold += 2000000;
             }
 
             let awardSilver = 0;
-            const nameSilver = ranking[1].name.length;
+            const nameSilver = this.ranking[1].name.length;
             if (nameSilver < 10) {
                 awardSilver = 15000000;
             }else if(nameSilver >= 10 && nameSilver <= 25) {
@@ -160,12 +168,12 @@ export default class Cycling {
             }else {
                 awardSilver = 20000000;
             }
-            if (ranking[1].name === 'PERIQUITO PEREZ') {
-                awardGold += awardGold;
+            if (this.ranking[1].name === 'PERIQUITO PEREZ') {
+                awardSilver += 2000000;
             }
 
             let awardBronze = 0;
-            const nameBronze = ranking[2].name.length;
+            const nameBronze = this.ranking[2].name.length;
             if (nameBronze < 13) {
                 awardBronze = 7500000;
             }else if(nameBronze >= 13 && nameBronze <= 20) {
@@ -173,8 +181,8 @@ export default class Cycling {
             }else {
                 awardBronze = 12500000;
             }
-            if (ranking[2].name === 'PERIQUITO PEREZ') {
-                awardBronze += awardBronze;
+            if (this.ranking[2].name === 'PERIQUITO PEREZ') {
+                awardBronze += 2000000;
             }
 
             //Render the awards
@@ -182,7 +190,6 @@ export default class Cycling {
             this.awardSilver.innerText = `$ ${new Intl.NumberFormat().format(awardSilver)}`;
             this.awardBronze.innerText = `$ ${new Intl.NumberFormat().format(awardBronze)}`;
             
-
 
         }
     }
