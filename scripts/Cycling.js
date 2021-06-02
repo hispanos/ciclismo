@@ -199,8 +199,24 @@ export default class Cycling {
             this.awardSilver.innerText = `$ ${new Intl.NumberFormat().format(awardSilver)}`;
             this.awardBronze.innerText = `$ ${new Intl.NumberFormat().format(awardBronze)}`;
             
-
         }
+    }
+
+    filterRunner(value) {
+        const [_, ...rows] = this.table.getElementsByTagName('tr');
+        rows.forEach((row) => {
+            const name = row.children[1].textContent.toLowerCase();
+            let isHidden = false;
+            if (value) {
+                isHidden = !name.includes(value.toLowerCase());
+            }
+
+            if (isHidden) {
+                row.classList.add('d-none')
+            }else{
+                row.classList.remove('d-none')
+            }
+        });
     }
 
 }
