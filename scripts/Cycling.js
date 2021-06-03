@@ -67,7 +67,10 @@ export default class Cycling {
         this.renderRanking();
         this.renderAward();
         //Close the modal
-        document.getElementById('modal-dismiss').click();
+        const modal = bootstrap.Modal.getInstance(this.modal);
+        modal.hide();
+        //Show Alert
+        swal("Bien hecho", "El Corredor ha sido guardado", "success");
     }
 
     setAverage(runs) {
